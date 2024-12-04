@@ -1,12 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import { SectionOne, SectionTwos } from "../components/Setions";
 import './styles.css';
+import { serviciotecnicosmartphone, solucioneswebs } from "../components/Rutes";
 
 const Home = () => {
   const navigate = useNavigate();
 
   const goToSW = () => {
-    navigate("/sw");
+    navigate(solucioneswebs);
+  }
+  const goToSTS = () => {
+    navigate(serviciotecnicosmartphone);
   }
 
   return (
@@ -14,7 +18,7 @@ const Home = () => {
       <SectionOne 
         text1={"Bienvedos a"}
         text2={"Enlaces"}
-        textp={"Desarrollo y soluciones para tu vida y negocio"}
+        textp={"Desarrollo y soluciones para tu casa o negocio"}
       />
       <SectionTwos
         titulo={"SW - Soluciones Webs"}
@@ -55,11 +59,11 @@ const Home = () => {
           "Eliminación de virus y malware",
           "Optimización de rendimiento del sistema",
           "Liberación de móviles (desbloqueo de red)",
-          "Instalación de aplicaciones personalizadas",
           "Solución de problemas de conectividad (Wi-Fi, Bluetooth, etc.)",
           "Restauración de software de fábrica",
           "Configuración y personalización de dispositivos",
         ]}
+        button={goToSTS}
       />
     </>
   )

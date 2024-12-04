@@ -1,7 +1,6 @@
 
 import { Suspense, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom"
-import Product from "./pages/Product"
 import Home from "./pages/Home"
 import Dashboard from "./pages/Dashboard"
 import Overview from "./pages/Overview"
@@ -10,8 +9,11 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
-
 import './App.css';
+import { serviciotecnicosmartphone, solucioneswebs } from "./components/Rutes";
+import Solucioneswebs from "./pages/Solucioneswebs";
+import Serviciotecnicodesmartphone from "./pages/Serviciotecnicodesmartphone";
+
 
 function App() {
 
@@ -26,10 +28,10 @@ function App() {
           <Link to="/">Inicio</Link>
         </li>
         <li>
-          <Link to="/sw">{screenWidth > 700 ? "Soluciones Webs": "SW"}</Link>
+          <Link to={solucioneswebs}>{screenWidth > 700 ? "Soluciones Webs": "SW"}</Link>
         </li>
         <li>
-          <Link to="/sts">{screenWidth > 700 ? "SerTec SmartPhones": "STS"}</Link>
+          <Link to={serviciotecnicosmartphone}>{screenWidth > 700 ? "SerTec SmartPhones": "STS"}</Link>
         </li>
         <li>
           <Link to="/profile">Perfil</Link>
@@ -39,8 +41,8 @@ function App() {
     
     <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/product/:id" element={<Product />}></Route>
+        <Route path={solucioneswebs} element={<Solucioneswebs />}></Route>
+        <Route path={serviciotecnicosmartphone} element={<Serviciotecnicodesmartphone />}></Route>
         <Route path="/dashboard/*" element={<Dashboard />}>
           <Route path="overview" element={<Overview />}></Route>
           <Route path="settings" element={
@@ -60,10 +62,6 @@ function App() {
       </Routes>
     </div>
     );
-}
-
-function About() {
-  return <h2>About</h2>
 }
 
 /*import logo from './logo.svg';
