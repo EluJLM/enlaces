@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "generio"
-  }
+    "default": "generio",
+    "yes": "enlade"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

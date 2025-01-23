@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
+  --azure: #007fff;
+  --aquamarine: #4ce0b3;
+  --myrtlegreen: #377771;
   --yellow: #FBFFDC;
   --green: #004028;
   --blue: #004386;
@@ -21,8 +24,10 @@ body {
   font-style: normal;
   transition: 0.3 ease all;
   & nav {
-    padding: 16px 0;
+    padding: 16px;
     position: fixed;
+    display: flex;
+    justify-content: space-between;
     top: 0;
     width: 100%;
     background: var(--white);
@@ -38,7 +43,68 @@ body {
   & div {
     width: 100%;
   }
-  & a {
+  & ul a {
     color: var(--blue);
   }
+}
+.ENLACES a{
+  color: var(--azure);
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-message {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.footer-links {
+  margin-bottom: 15px;
+}
+
+.footer-link {
+  color: #1db954;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-buttons {
+  margin-top: 10px;
+}
+
+.footer-button {
+  display: inline-block;
+  background-color: #1db954;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.footer-button:hover {
+  background-color: #148f3f;
 }

@@ -5,7 +5,7 @@ const Solucioneswebs = () => {
         <>
             <SectionOne 
                 text1={"Soluciones Webs"}
-                text2={"Al alcanse de tu negocio un catalogo o carta digital"}
+                text2={"A tu alcanse un catalogo o carta digital"}
                 textp={"genera confiabilidad y credivilidad en tus clientes"}
             />
         </>

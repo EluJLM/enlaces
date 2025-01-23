@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SectionOne, SectionTwos } from "../components/Setions";
 import './styles.css';
 import { serviciotecnicosmartphone, solucioneswebs } from "../components/Rutes";
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <>
       <SectionOne 
-        text1={"Bienvedos a"}
+        text1={"Bienvenidos a"}
         text2={"Enlaces"}
         textp={"Desarrollo y soluciones para tu casa o negocio"}
       />
