@@ -21,6 +21,7 @@ const Satisfaccion = () => {
     deliveryTimeRating: "",
     recommendation: "",
     deviceCondition: "",
+    improve: "",
     comments: "",
   });
 
@@ -44,7 +45,7 @@ const Satisfaccion = () => {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyu3ZjO6OuBzwZb8BwaYpzSpyt4wX4lk56tNd-_WAj4r5oEhs-YuTnMxxLo2iCYbnK_zw/exec",
+        "https://script.google.com/macros/s/AKfycbxygCRscyHD4I2OdLFfzUmYhmZcYiqLQ-Kj0jznlxVezMw0p0BMFvVhS1cQXfg3Z16LxA/exec",
         {
           method: "POST",
           headers: {
@@ -61,10 +62,12 @@ const Satisfaccion = () => {
         openModal();
         setTimeout(() => {
           closeModal();
-          navigate("/");
         }, 3000);
+        setTimeout(() => {
+          navigate("/");
+        }, 3500);
       } else {
-        setSubmissionStatus("Hubo un error al enviar el formulario.");
+        setSubmissionStatus("Hubo un error al enviar el formulario. solicita uno nuevo si deseas");
         openModalAlert();
       }
     } catch (error) {
@@ -74,43 +77,52 @@ const Satisfaccion = () => {
 
   return (
     <div className="survey-container">
+      <h2>Hola <p className="cliente">{clientName}</p>queremos saber tu opinión.</h2>
       <h1>{service}</h1>
       <h2>Encuesta de satisfacción</h2>
-      <h2>Hola <p className="cliente">{clientName}</p>queremos saber tu opinión.</h2>
-
       {submissionStatus && <p className="status-message">{submissionStatus}</p>}
 
       <form onSubmit={handleSubmit}>
         <RadioInput
-          label="¿Qué te pareció el tiempo de entrega?"
-          params={["Demorado", "A tiempo", "Rápido"]}
+          label="¿Qué tan satisfecho(a) estás con el servicio recibido?"
+          params={["1 Muy Insatisfecho","2","3","4","5 Muy Satisfecho"]}
           name="deliveryTimeRating"
           value={formData.deliveryTimeRating}
           onChange={handleChange}
         />
         <RadioInput
-          label="¿Qué te pareció el precio?"
-          params={["Costoso", "Justo", "Económico"]}
+          label="¿Cómo calificarías la atención recibida durante el servicio?"
+          params={["1 Muy Mala","2","3","4","5 Muy Buena"]}
           name="priceRating"
           value={formData.priceRating}
           onChange={handleChange}
         />
         <RadioInput
-          label="¿Nos recomendarías a alguien más?"
-          params={["No", "Tal vez", "Sí"]}
+          label="¿El servicio fue realizado dentro del tiempo esperado?"
+          params={["No", "Sí"]}
           name="recommendation"
           value={formData.recommendation}
           onChange={handleChange}
         />
+        <label>
+          ¿Hay algo que podamos mejorar?
+          <textarea
+            className="comentario"
+            name="improve"
+            value={formData.improve}
+            onChange={handleChange}
+            placeholder="Opcional."
+          />
+        </label>
         <RadioInput
-          label="¿Cómo quedó tu dispositivo?"
-          params={["Mal", "Aceptable", "Bueno"]}
+          label="¿Qué tan probable es que nos recomiendes a un amigo o familiar?"
+          params={["1 Ninguna Probabilidad ","2","3","4","5 Muy Probable"]}
           name="deviceCondition"
           value={formData.deviceCondition}
           onChange={handleChange}
         />
         <label>
-          Comentarios adicionales
+        Si deseas, cuéntanos qué fue lo que más te gustó del servicio.
           <textarea
             className="comentario"
             name="comments"
@@ -119,8 +131,8 @@ const Satisfaccion = () => {
             placeholder="Opcional. EJ: ¡una queja, un reclamo o algun punto a resaltar!"
           />
         </label>
-
-        <button type="submit">Enviar</button>
+        {submissionStatus && <p className="status-message">{submissionStatus}</p>}
+        {submissionStatus === "" && <button type="submit">Enviar</button>}
       </form>
       <Modal
         isOpen={isOpen}
