@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./url.css"
+import useModal from "../../components/modal/useModal";
+import Modal from "../../components/modal/Modal";
 const UrlGenerator = () => {
   const [service, setService] = useState("");
   const [clientName, setClientName] = useState("");
   const [token, setToken] = useState("");
   const [generatedUrl, setGeneratedUrl] = useState("");
 
+  const [isOpen, openModal, closeModal] = useModal();
+  const [isOpen2, openModal2, closeModal2] = useModal();
   // Actualiza la URL de forma reactiva cuando cambien los valores
   useEffect(() => {
     const formattedService = service.replaceAll(" ", "_");
@@ -16,12 +20,22 @@ const UrlGenerator = () => {
 
   const handleCopyToClipboard = () => {
     navigator.clipboard.writeText(generatedUrl); // Copiar al portapapeles
-    alert("¡URL copiada al portapapeles!");
+    openModal();
+    setTimeout(() => {
+      closeModal();
+    }, 3000);
+  };
+  const handleCopyToken = () => {
+    navigator.clipboard.writeText(token); // Copiar al portapapeles
+    openModal2();
+    setTimeout(() => {
+      closeModal2();
+    }, 5000);
   };
 
   return (
     <div className="urlgenerador">
-      <h2>Generador de URLs para encuenta</h2>
+      <h2>Generador de URLs para encuesta</h2>
       <h4>Recuerde añadir el token al backend</h4>
       <div>
         <label>
@@ -55,16 +69,31 @@ const UrlGenerator = () => {
             placeholder="Ej: 123jdk"
           />
         </label>
+        <button onClick={handleCopyToken}>Copiar Token</button>
       </div>
       <div style={{ marginTop: "20px" }}>
         <button onClick={handleCopyToClipboard}>Copiar URL al portapapeles</button>
       </div>
-      {generatedUrl && (
+      <Modal
+        isOpen={isOpen}
+        onClose={closeModal}
+        title="¡Copiado con exito!"
+        text="Debes enviárselo a tu cliente."
+        css={"ok"}
+      />
+      <Modal
+        isOpen={isOpen2}
+        onClose={closeModal2}
+        title="¡Toke Copiado con exito!"
+        text="Debes Agregarlo al Excel en la culumna de Token."
+        css={"ok"}
+      />
+      {/*generatedUrl && (
         <div style={{ marginTop: "20px" }}>
           <p><strong>URL Generada:</strong></p>
           <p>{generatedUrl}</p>
         </div>
-      )}
+      )*/}
     </div>
   );
 };

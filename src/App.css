@@ -11,47 +11,17 @@
   --light-green: #EAF5ED;
   --white: #FFFFFF;
   --black: #000;
+  --black2:#00268d;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  width: 100%;
   min-height: 100vh;
   background-color: var(--white);
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
   transition: 0.3 ease all;
-  & nav {
-    padding: 16px;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    top: 0;
-    width: 100%;
-    background: var(--white);
-    box-shadow: 0 0 6px #000;
-    & ul {
-      padding: 0;
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-    }
-  }
-  & div {
-    width: 100%;
-  }
-  & ul a {
-    color: var(--blue);
-  }
 }
-.ENLACES a{
-  color: var(--azure);
-  text-decoration: none;
-}
-
 .footer {
   background-color: #222;
   color: #fff;

@@ -40,6 +40,9 @@ const Satisfaccion = () => {
 
     if (!formData.priceRating || !formData.deliveryTimeRating || !formData.recommendation || !formData.deviceCondition) {
       setSubmissionStatus("Por favor, completa todos los campos requeridos.");
+      setTimeout(() => {
+        setSubmissionStatus("");
+      }, 700);
       return;
     }
 
@@ -67,6 +70,7 @@ const Satisfaccion = () => {
           navigate("/");
         }, 3500);
       } else {
+        //console.error(result);
         setSubmissionStatus("Hubo un error al enviar el formulario. solicita uno nuevo si deseas");
         openModalAlert();
       }
@@ -137,7 +141,7 @@ const Satisfaccion = () => {
       <Modal
         isOpen={isOpen}
         onClose={closeModal}
-        title="¡De Maravilla!"
+        title="¡De maravilla!"
         text="Tus datos se han registrado con éxito."
         css={"ok"}
       />
