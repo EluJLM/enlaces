@@ -3,5 +3,7 @@ const serviciotecnicosmartphone ="/serviciotecnico";
 const satisfaccion = "/satisfactionsurvey";
 const urlgenerador = "/urlgenerador";
 const cerrajeria = "/cerrajeria"
+const Microcontroladores="/Microcontroladores"
+const quiensoy="/quiensoy";
 
-export {solucioneswebs, serviciotecnicosmartphone, satisfaccion, urlgenerador, cerrajeria}
+export {solucioneswebs, quiensoy, serviciotecnicosmartphone, satisfaccion, urlgenerador, cerrajeria, Microcontroladores}

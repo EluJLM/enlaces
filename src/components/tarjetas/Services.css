@@ -46,4 +46,11 @@
   .service-description {
     color: #555;
   }
-  
+  @media (max-width: 700px) {
+    .service-description {
+      display: none;
+    }
+    .open-service-description{
+      display: block;
+    }
+  }

@@ -3,7 +3,7 @@ import "./Modal.css";
 
 const Modal = ({ isOpen, onClose, title, text, css }) => {
   if (!isOpen) return null;
-
+  
   return (
     <div className={"modal-overlay"} onClick={onClose}>
       <div

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { cerrajeria, serviciotecnicosmartphone, solucioneswebs } from "../../routes/Routes_text";
+import { cerrajeria, quiensoy, serviciotecnicosmartphone, solucioneswebs } from "../../routes/Routes_text";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./nav.css";
@@ -44,6 +44,9 @@ const Nav = () => {
         </li>
         <li>
           <Link to={cerrajeria} onClick={cerrarMenu}>Cerrajeria</Link>
+        </li>
+        <li>
+          <Link to={quiensoy} onClick={cerrarMenu}>Quien soy</Link>
         </li>
         <li>
           {/*<Link to={serviciotecnicosmartphone} onClick={cerrarMenu}>Contacto</Link>*/}

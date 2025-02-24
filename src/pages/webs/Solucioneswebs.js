@@ -27,9 +27,8 @@ const Solucioneswebs = () => {
               </a>
             </h3>
             
-            <p className="service-description">
-              Te ayudamos a conocer la opinión de tus clientes con una encuesta personalizada.  
-              Si deseas saber más, toca el título de la tarjeta o escríbenos a WhatsApp.
+            <p className="open-service-description">
+            Haz que más clientes confíen en tu trabajo con una encuesta de satisfacción personalizada. Si eres manicurista, plomero, pintor o prestas cualquier servicio a domicilio, saber lo que piensan tus clientes te ayudará a mejorar y atraer más personas. Recibe opiniones, demuestra tu profesionalismo y gana más clientes por recomendación. Si deseas saber más, escríbenos a WhatsApp.
             </p>
 
             <h3 className="service-title">
@@ -52,7 +51,7 @@ const Solucioneswebs = () => {
               </a>
             </h3>
 
-            <p className="service-description">
+            <p className="open-service-description">
               Para usarlo, debes ir a la aplicación de prueba y llenar los campos.  
               Luego, crea un token de 6 caracteres, cópialo en la hoja de excel - "tokens" al lado de un campo disponible,  
               regresa a la aplicación de prueba, copia la URL y envíasela a tu cliente.
@@ -64,7 +63,7 @@ const Solucioneswebs = () => {
                 Próximamente más servicios
             </h3>
             
-            <p className="service-description">
+            <p className="open-service-description">
               Te ayudamos a conocer la opinión de tus clientes con una encuesta personalizada.  
               Si deseas saber más, toca el título de la tarjeta o escríbenos a WhatsApp.
             </p>

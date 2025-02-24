@@ -12,9 +12,24 @@ const icons = {
 };
 
 const FloatingButtons = ({ whatsapp, phone, instagram, facebook, tiktok, email }) => {
+
   const buttons = Object.entries({ whatsapp, phone, instagram, facebook, tiktok, email })
-    .filter(([key, value]) => value && icons[key])
-    .map(([key, value]) => ({ link: key === "email" ? `mailto:${value}` : key === "phone" ? `tel:${value}` : value, Icon: icons[key] }));
+  .filter(([key, value]) => value && icons[key])
+  .map(([key, value]) => {
+    let link;
+    if (key === "email") {
+      link = `mailto:${value}`;
+    } else if (key === "phone") {
+      link = `tel:${value}`;
+    } else if (key === "whatsapp") {
+      const phoneNumber = value.replace(/\D/g, ""); // Eliminar caracteres no numéricos
+      link = `https://wa.me/${phoneNumber}`;
+    } else {
+      link = value;
+    }
+    
+    return { link, Icon: icons[key] };
+  });
 
   return (
     <div className="floating-buttons-container">
