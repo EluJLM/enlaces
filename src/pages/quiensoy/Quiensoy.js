@@ -9,16 +9,23 @@ const Container = styled.div`
   justify-content: center;
   height: 100vh; // 40% del alto de la pantalla
   background-color: #f0f0f0; // Color de fondo del contenedor
-  position: relative;
+
 `;
 
 const Photo = styled.img`
-  width: 100px; // Tamaño de la foto
-  height: 100px;
-  border-radius: 50%; // Hace la foto redonda
-  position: absolute;
-  bottom: -50px; // Coloca la foto en la parte inferior del div
-`;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    bottom: -75px;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    @media (max-width: 700px) {
+        width: 130px; 
+        height: 130px;
+        bottom: -65px;
+    }
+    `;
+
 
 const InfoContainer = styled.div`
   margin-top: 60px; // Espacio para la foto
@@ -34,13 +41,22 @@ const Description = styled.p`
   font-size: 1rem;
   color: #666;
 `;
-
-// Componente Quiensoy
+const ContenImg = styled.div`
+    width: 100%;
+    height:  90vh;
+    display: flex;
+    justify-content: center;
+    background-image: url("willis.webp");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+`;
 export const Quiensoy = () => {
   return (
     <Container>
-        
-      <Photo src="ruta/a/tu/foto.jpg" alt="Elu Jesus Lozano Mendoza" />
+        <ContenImg>
+            <Photo src="willis.webp" alt="Elu Jesus Lozano Mendoza" />
+        </ContenImg>
       <InfoContainer>
         <Name>Elu Jesus Lozano Mendoza</Name>
         <Description>
