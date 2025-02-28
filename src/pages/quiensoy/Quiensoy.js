@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaTiktok, FaFacebook } from 'react-icons/fa'; // Importamos los íconos de TikTok y Facebook
 
 // Estilos con styled-components
 const Container = styled.div`
@@ -9,7 +10,6 @@ const Container = styled.div`
   justify-content: center;
   height: 100vh; // 40% del alto de la pantalla
   background-color: #f0f0f0; // Color de fondo del contenedor
-
 `;
 
 const Photo = styled.img`
@@ -19,16 +19,16 @@ const Photo = styled.img`
     bottom: -75px;
     position: absolute;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    border: 5px solid #007fff;
     @media (max-width: 700px) {
         width: 130px; 
         height: 130px;
         bottom: -65px;
     }
-    `;
-
+`;
 
 const InfoContainer = styled.div`
-  margin-top: 60px; // Espacio para la foto
+  margin: 60px; // Espacio para la foto
   text-align: center;
 `;
 
@@ -41,6 +41,7 @@ const Description = styled.p`
   font-size: 1rem;
   color: #666;
 `;
+
 const ContenImg = styled.div`
     width: 100%;
     height:  90vh;
@@ -50,18 +51,57 @@ const ContenImg = styled.div`
     background-size: cover;
     background-position: center;
     position: relative;
+    margin-bottom: 20px;
 `;
+
+const SocialLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const SocialLink = styled.a`
+  margin: 0 10px;
+  color: #333;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #007fff;
+  }
+`;
+
 export const Quiensoy = () => {
   return (
     <Container>
         <ContenImg>
-            <Photo src="willis.webp" alt="Elu Jesus Lozano Mendoza" />
+            <Photo src="foto.jpg" alt="Elu Jesus Lozano Mendoza" />
         </ContenImg>
       <InfoContainer>
         <Name>Elu Jesus Lozano Mendoza</Name>
         <Description>
-          Tengo 24 años, soy estudiante de Instrumentación Electrónica en la Universidad del Quindío y pronto seré estudiante de Ingeniería Electrónica. Me desempeño como técnico electrónico y cerrajero en estos momentos y ofrezco algunos servicios webs. Llevo 8 años viviendo en Armenia y estoy muy agradecido con Dios y el Quindío por ser tan cheveres. Tengo una bebé muy hermosa.
+          Hola soy Elu, un apasionado por la electrónica, la programación.
         </Description>
+        <Description>
+            Me gusta aprender cosas nuevas y compartir mis conocimientos.
+        </Description>
+        <Description>
+            Soy estudiante de instrumentación electrónica en la universidad del Quindío, este año me graduo.
+        </Description>
+        <Description>
+            En el momento ofrezco servicios de cerrajería, técnico electrónico, y servicios webs.
+        </Description>
+        <Description>
+            Mi meta es generar empleo y ayudar a las personas a solucionar sus problemas.
+        </Description>
+        <SocialLinks>
+          <SocialLink href="https://www.tiktok.com/@elujlm" target="_blank" rel="noopener noreferrer">
+            <FaTiktok size={34}/>
+          </SocialLink>
+          <SocialLink href="https://www.facebook.com/enlacesdev" target="_blank" rel="noopener noreferrer">
+            <FaFacebook size={34}/>
+          </SocialLink>
+        </SocialLinks>
       </InfoContainer>
     </Container>
   );
