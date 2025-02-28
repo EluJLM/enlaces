@@ -1,6 +1,6 @@
 # ENLACES enlade.web.app
 
-Este proyecto es una plataforma en línea que ofrece múltiples servicios en distintas categorías, desarrollada con React y React Router.
+página web que ofrece múltiples servicios en distintas categorías, desarrollada con React y React Router.
 
 ## Características
 
