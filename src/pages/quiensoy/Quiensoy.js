@@ -8,7 +8,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; // 40% del alto de la pantalla
   background-color: #f0f0f0; // Color de fondo del contenedor
 `;
 
@@ -44,7 +43,7 @@ const Description = styled.p`
 
 const ContenImg = styled.div`
     width: 100%;
-    height:  90vh;
+    height:  70vh;
     display: flex;
     justify-content: center;
     background-image: url("willis.webp");

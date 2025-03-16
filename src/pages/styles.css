@@ -107,21 +107,22 @@ section{
     margin-right: 5px;
   }
   
-  /* 🔹 Colores con base en Azure */
   .web-button {
-    background-color: #007bff; /* Azure */
+    background-color: #007bff; /* Azul Profesional */
     color: white;
   }
   
   .tech-button {
-    background-color: #0056b3; /* Azul oscuro */
+    background-color: #026440; /* Verde Oscuro Sofisticado */
     color: white;
   }
   
   .locksmith-button {
-    background-color: #00a8e8; /* Celeste */
+    background-color: #ffc107; /* Dorado Elegante */
     color: white;
   }
+  
+  
   
   .nav-button:hover {
     transform: scale(1.05);

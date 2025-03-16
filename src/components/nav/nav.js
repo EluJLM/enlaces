@@ -17,7 +17,7 @@ const Nav = () => {
   return (
     <nav>
       <h1 className="ENLACES">
-        <Link to="/">Enlaces</Link>
+        <Link to="/">Enlaces DS</Link>
       </h1>
 
       {/* Checkbox oculto para controlar el menú con CSS */}
