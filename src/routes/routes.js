@@ -15,6 +15,7 @@ import Cerrajeria from "../pages/cerrejeria/cerrajeria";
 import ScrollToTop from "../components/scrolltop";
 import Encuesta from "../pages/estocasticos/encuesta";
 import { Quiensoy } from "../pages/quiensoy/Quiensoy";
+import GoogleMapsServicePage from "../pages/webs/GoogleMapsServicePage";
 
 const MyRoutes = () => {
     
@@ -24,6 +25,10 @@ const MyRoutes = () => {
     <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path={solucioneswebs} element={<Solucioneswebs />}></Route>
+    
+        <Route path="/webs/posicionamientoengooglemaps" element={<GoogleMapsServicePage />} />
+
+
         <Route path={serviciotecnicosmartphone} element={<Serviciotecnicodesmartphone />}></Route>
         <Route path={cerrajeria} element={<Cerrajeria />} ></Route>
         <Route path={quiensoy} element={<Quiensoy />}></Route>

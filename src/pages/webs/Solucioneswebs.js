@@ -1,5 +1,7 @@
 import { SectionOne } from "../../components/Setions";
 import { FaClipboardList, FaHourglassHalf } from "react-icons/fa";
+import Services from "../../components/tarjetas/services";
+import { webServices } from "./services";
 
 const Solucioneswebs = () => {
   return (
@@ -9,6 +11,8 @@ const Solucioneswebs = () => {
         text2={"Soluciones a tu alcance"}
         textp={"Genera confianza y credibilidad en tus clientes"}
       />
+      
+      <Services title={"Ofrecemos"} services={webServices} />
       <div className="services-container">
         <h2 className="services-title">Soluciones</h2>
         <div className="services-grid">

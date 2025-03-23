@@ -82,7 +82,7 @@ export const Quiensoy = () => {
           Hola soy Elu, un apasionado por la electrónica, la programación.
         </Description>
         <Description>
-            Me gusta aprender cosas nuevas y compartir mis conocimientos.
+            Estoy dispuesto a compartir mis conocimientos.
         </Description>
         <Description>
             Soy estudiante de instrumentación electrónica en la universidad del Quindío, este año me graduo.

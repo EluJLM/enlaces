@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Importa Link
 import "./Services.css";
 
 export default function Services({ title, services }) {
@@ -32,9 +33,13 @@ export default function Services({ title, services }) {
           >
             {service.icon}
             {service.link ? (
-              <a href={service.link} className="service-title" target="_blank" rel="noopener noreferrer">
+              <Link 
+                to={service.link} 
+                className="service-title"
+                onClick={(e) => e.stopPropagation()} // Evita la propagación del click
+              >
                 {service.title}
-              </a>
+              </Link>
             ) : (
               <h3 className="service-title">{service.title}</h3>
             )}
