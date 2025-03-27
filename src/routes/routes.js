@@ -16,6 +16,7 @@ import ScrollToTop from "../components/scrolltop";
 import Encuesta from "../pages/estocasticos/encuesta";
 import { Quiensoy } from "../pages/quiensoy/Quiensoy";
 import GoogleMapsServicePage from "../pages/webs/GoogleMapsServicePage";
+import PCBServicePage from "../pages/serviciotecnico/PCBServicePage";
 
 const MyRoutes = () => {
     
@@ -30,6 +31,9 @@ const MyRoutes = () => {
 
 
         <Route path={serviciotecnicosmartphone} element={<Serviciotecnicodesmartphone />}></Route>
+        <Route path={"/serviciotecnico/pcb"} element={<PCBServicePage />}></Route>
+
+
         <Route path={cerrajeria} element={<Cerrajeria />} ></Route>
         <Route path={quiensoy} element={<Quiensoy />}></Route>
         <Route path={Microcontroladores} element={<Encuesta />}></Route>
