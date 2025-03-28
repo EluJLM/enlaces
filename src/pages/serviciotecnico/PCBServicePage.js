@@ -5,16 +5,26 @@ import { FaRuler, FaCalculator, FaMoneyBillWave } from 'react-icons/fa';
 const PCBServicePage = () => {
   const [width, setWidth] = useState('');
   const [height, setHeight] = useState('');
-  const [diametro, setDiametro] = useState('0.3');
+  const [drills, setDrills] = useState([]);
+  const [serviceType, setServiceType] = useState('taladros');
   const [error, setError] = useState('');
+
+  // Precios base
+  const PRECIOS = {
+    taladros: 90,
+    una_cara: 90+120,
+    dos_caras: 88+90+55
+  };
 
   const calcularPrecio = () => {
     const area = parseFloat(width) * parseFloat(height);
-    let precio = area * 88;
+    let precio = area * PRECIOS[serviceType];
     
-    if(diametro === '1.6') precio += area * 5;
+    // Costo adicional por brocas extras
+    const brocasExtras = Math.max(drills.length - 3, 0);
+    if(brocasExtras > 0) precio += brocasExtras * 1000;
     
-    return Math.max(precio, 5000);
+    return Math.max(precio, 10000);
   };
 
   const handleSubmit = (e) => {
@@ -26,16 +36,63 @@ const PCBServicePage = () => {
     setError('');
   };
 
+  const toggleDrill = (size) => {
+    setDrills(prev => 
+      prev.includes(size) 
+        ? prev.filter(d => d !== size) 
+        : [...prev, size]
+    );
+  };
+
   return (
     <Container>
       <HeroSection>
-        <Title>Fabricación de PCB Personalizadas</Title>
-        <Subtitle>Precisión industrial con acabado profesional</Subtitle>
+        <Title>Fabricación de PCB</Title>
+        <Subtitle>Manejamos en brocas desde 0.3 asta 1.2 mm</Subtitle>
       </HeroSection>
 
       <Section>
-        <SectionTitle>Cotizador Instantáneo</SectionTitle>
+        <SectionTitle>Cotiza</SectionTitle>
         <CalculatorForm onSubmit={handleSubmit}>
+          <ServiceTypeSelector>
+            <legend>Tipo de servicio: FR-4</legend>
+            <ServiceOption>
+              <input 
+                type="radio" 
+                name="serviceType"
+                value="taladros"
+                checked={serviceType === 'taladros'}
+                onChange={(e) => setServiceType(e.target.value)}
+              />
+              <span>Solo taladros ($90/cm²)</span>
+            </ServiceOption>
+            
+            <ServiceOption>
+              <input 
+                type="radio" 
+                name="serviceType"
+                value="una_cara"
+                checked={serviceType === 'una_cara'}
+                onChange={(e) => setServiceType(e.target.value)}
+              />
+              <span>1 cara + taladros ($90 + $120 /cm²)</span>
+            </ServiceOption>
+            <ServiceOption>
+              <span>Proximamente dos caras y Serigrafia</span>
+              </ServiceOption>
+            
+            {/*<ServiceOption>
+              <input 
+                type="radio" 
+                name="serviceType"
+                value="dos_caras"
+                checked={serviceType === 'dos_caras'}
+                onChange={(e) => setServiceType(e.target.value)}
+              />
+              <span>2 caras + taladros ($88 + $90 + $55/cm² extra)</span>
+            </ServiceOption>*/}
+          </ServiceTypeSelector>
+
           <InputGroup>
             <label>
               <FaRuler /> Ancho (cm)
@@ -60,69 +117,43 @@ const PCBServicePage = () => {
             </label>
           </InputGroup>
 
-          <DrillOptions>
-            <legend><FaCalculator /> Diámetro de perforación:</legend>
-            <DrillOption>
-              <input 
-                type="radio" 
-                name="diametro"
-                value="0.3" 
-                checked={diametro === '0.3'}
-                onChange={(e) => setDiametro(e.target.value)}
-              />
-              <span>0.3 mm (Estándar)</span>
-            </DrillOption>
-
-            <DrillOption>
-              <input 
-                type="radio" 
-                name="diametro"
-                value="0.8" 
-                checked={diametro === '0.8'}
-                onChange={(e) => setDiametro(e.target.value)}
-              />
-              <span>0.8 mm</span>
-            </DrillOption>
-
-            <DrillOption>
-              <input 
-                type="radio" 
-                name="diametro"
-                value="1.2" 
-                checked={diametro === '1.2'}
-                onChange={(e) => setDiametro(e.target.value)}
-              />
-              <span>1.2 mm</span>
-            </DrillOption>
-
-            <DrillOption>
-              <input 
-                type="radio" 
-                name="diametro"
-                value="1.6" 
-                checked={diametro === '1.6'}
-                onChange={(e) => setDiametro(e.target.value)}
-              />
-              <span>1.6 mm (+$5/cm²)</span>
-            </DrillOption>
-          </DrillOptions>
+          {/*<DrillOptions>
+            <legend><FaCalculator /> Diámetros de perforación (selección múltiple):</legend>
+            {['0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0', '1.1', '1.2'].map((size) => (
+              <DrillOption key={size}>
+                <input 
+                  type="checkbox"
+                  checked={drills.includes(size)}
+                  onChange={() => toggleDrill(size)}
+                />
+                <span>{size} mm</span>
+              </DrillOption>
+            ))}
+            <DrillWarning>
+              {drills.length > 3 && 
+                `+${drills.length - 3} brocas extras ($${(drills.length - 3) * 1000} COP)`}
+            </DrillWarning>
+          </DrillOptions>*/}
 
           {error && <ErrorMessage>{error}</ErrorMessage>}
 
           <PriceDisplay>
             <FaMoneyBillWave size={24} />
             <TotalPrice>${calcularPrecio().toLocaleString()} COP</TotalPrice>
+            <TotalPrice>{height*width} cm²</TotalPrice>
             <PriceBreakdown>
-              <div>Precio base: ${(width * height * 88 || 0).toLocaleString()}</div>
-              {diametro === '1.6' && <div>+ Broca especial: ${(width * height * 5 || 0).toLocaleString()}</div>}
-              <div>Mínimo de pedido: $5,000 COP</div>
+              <div>Precio base: ${(width * height * PRECIOS[serviceType] || 0).toLocaleString()}</div>
+              {drills.length > 3 && 
+                <div>+ Brocas extras: ${((drills.length - 3) * 1000).toLocaleString()}</div>}
+              <div>Mínimo de pedido: $10,000 COP</div>
             </PriceBreakdown>
           </PriceDisplay>
 
           <ResetButton type="button" onClick={() => {
             setWidth('');
             setHeight('');
-            setDiametro('0.3');
+            setDrills([]);
+            setServiceType('taladros');
             setError('');
           }}>
             Reiniciar
@@ -135,19 +166,21 @@ const PCBServicePage = () => {
           <SpecCard>
             <h3><FaRuler /> Especificaciones Técnicas</h3>
             <ul>
-              <li>Huecos desde 0.3mm hasta 1.6mm</li>
-              <li>Precisión ±0.05mm</li>
+              <li>Manejamos brocas desde 0.3mm hasta 1.2mm</li>
               <li>Material: Baquelita FR-4</li>
               <li>Tiempo de entrega: 1 a 3 días hábiles</li>
+              <li>No se entrega con serigrafia mas adelante</li>
             </ul>
           </SpecCard>
           
           <SpecCard>
             <h3><FaMoneyBillWave /> Políticas</h3>
             <ul>
+              <li>Más de 3 brocas diferentes: $1,000 COP adicionales por broca</li>
               <li>Mínimo de pedido: $5,000 COP</li>
               <li>Pago 50% anticipado</li>
-              <li>Archivos Gerber y PDF del bottom y/o top vias requeridos</li>
+              <li>Archivos Gerber de Perforaciones( Drill)</li>
+              <li>PDF del bottom y/o top vias requeridos</li>
               <li>El top o el bottom deben de tener plano de tierra</li>
             </ul>
           </SpecCard>
@@ -157,6 +190,44 @@ const PCBServicePage = () => {
   );
 };
 
+// Estilos actualizados
+const ServiceTypeSelector = styled.fieldset`
+  border: 2px solid #007fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  legend {
+    padding: 0 0.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+`;
+
+const ServiceOption = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  color: #444;
+  
+  input {
+    accent-color: #007fff;
+    width: 18px;
+    height: 18px;
+  }
+  
+  span {
+    flex: 1;
+    font-weight: 500;
+  }
+`;
+
+const DrillWarning = styled.div`
+  color: #dc3545;
+  margin-top: 1rem;
+  font-weight: 500;
+`;
 // Estilos completos
 const Container = styled.div`
   max-width: 1200px;

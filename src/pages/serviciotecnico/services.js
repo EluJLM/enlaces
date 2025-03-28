@@ -1,5 +1,5 @@
 import { FaMobileAlt, FaPlug, FaTv, FaBlender, FaTools, FaCogs, FaLaptop } from "react-icons/fa";
-
+import { FcElectronics } from "react-icons/fc";
 export const technicalServices = [
   // 📌 ELECTRODOMÉSTICOS
   {
@@ -48,4 +48,10 @@ export const technicalServices = [
     description:
       "¿No sabe qué le pasa a su equipo? Hacemos diagnóstico y le damos la mejor solución sin rodeos ni costos ocultos.",
   },
+  {
+      icon: <FcElectronics size={40} className="icon" />,
+      title: "Fabricación de PCB",
+      description: "Dale clik al titulo de esta tarjeta y cotiza tu PCB. Fabricación para estudiantes y de caracter educativo.", 
+      link: "/serviciotecnico/pcb",
+    },
 ];
