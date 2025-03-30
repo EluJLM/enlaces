@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { FaRuler, FaCalculator, FaMoneyBillWave } from 'react-icons/fa';
+import { FaRuler, FaCalculator, FaMoneyBillWave, FaPhone } from 'react-icons/fa';
+import { HeroSection, Section, SectionTitle} from '../../components/styled/styled';
 
 const PCBServicePage = () => {
   const [width, setWidth] = useState('');
@@ -12,7 +13,7 @@ const PCBServicePage = () => {
   // Precios base
   const PRECIOS = {
     taladros: 90,
-    una_cara: 90+120,
+    una_cara: 90+150,
     dos_caras: 88+90+55
   };
 
@@ -46,10 +47,51 @@ const PCBServicePage = () => {
 
   return (
     <Container>
-      <HeroSection>
+      <HeroSection bgColor="#00c445">
         <Title>Fabricación de PCB</Title>
         <Subtitle>Manejamos en brocas desde 0.3 asta 1.2 mm</Subtitle>
       </HeroSection>
+      
+      <Section>
+      <SectionTitle>Nuestros Servicios</SectionTitle>
+  
+  <PricingInfo>
+    <ServiceCard>
+      <h3><FaRuler /> Solo Taladros</h3>
+      <Price>$90/cm²</Price>
+      <ul>
+        <li>Incluye placa de baquelita FR-4</li>
+        <li>Hasta 3 brocas diferentes</li>
+        <li>Precisión industrial</li>
+      </ul>
+    </ServiceCard>
+
+    <ServiceCard highlight>
+      <h3><FaCalculator /> Taladros + 1 Cara</h3>
+      <Price>$240/cm²</Price>
+      <ul>
+        <li>Incluye revelado de 1 cara</li>
+        <li>Material FR-4</li>
+        <li>Proceso rápido</li>
+      </ul>
+    </ServiceCard>
+  </PricingInfo>
+
+  <ContactBox>
+    <QRContainer>
+      <img src="/qrcode.png" alt="QR de contacto" />
+      <span>Escanea para cotizar</span>
+    </QRContainer>
+    
+    <PhoneLink href="tel:+573022547603">
+      <FaPhone />
+      <div>
+        <span>Escribe al</span>
+        <PhoneNumber>+57 302 2547603</PhoneNumber>
+      </div>
+    </PhoneLink>
+  </ContactBox>
+      </Section>
 
       <Section>
         <SectionTitle>Cotiza</SectionTitle>
@@ -75,7 +117,7 @@ const PCBServicePage = () => {
                 checked={serviceType === 'una_cara'}
                 onChange={(e) => setServiceType(e.target.value)}
               />
-              <span>1 cara + taladros ($90 + $120 /cm²)</span>
+              <span>1 cara + taladros ($90 + $150 /cm²)</span>
             </ServiceOption>
             <ServiceOption>
               <span>Proximamente dos caras y Serigrafia</span>
@@ -177,7 +219,7 @@ const PCBServicePage = () => {
             <h3><FaMoneyBillWave /> Políticas</h3>
             <ul>
               <li>Más de 3 brocas diferentes: $1,000 COP adicionales por broca</li>
-              <li>Mínimo de pedido: $5,000 COP</li>
+              <li>Mínimo de pedido: $10,000 COP</li>
               <li>Pago 50% anticipado</li>
               <li>Archivos Gerber de Perforaciones( Drill)</li>
               <li>PDF del bottom y/o top vias requeridos</li>
@@ -192,7 +234,7 @@ const PCBServicePage = () => {
 
 // Estilos actualizados
 const ServiceTypeSelector = styled.fieldset`
-  border: 2px solid #007fff;
+  border: 2px solid #00c445;
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -212,7 +254,7 @@ const ServiceOption = styled.label`
   color: #444;
   
   input {
-    accent-color: #007fff;
+    accent-color: #00c445;
     width: 18px;
     height: 18px;
   }
@@ -230,22 +272,9 @@ const DrillWarning = styled.div`
 `;
 // Estilos completos
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 20px;
-`;
-
-const HeroSection = styled.div`
-  text-align: center;
-  padding: 4rem 0;
-  background-color: #007fff;
-  color: white;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-  
-  @media (max-width: 768px) {
-    padding: 2rem 0;
-  }
 `;
 
 const Title = styled.h1`
@@ -266,21 +295,8 @@ const Subtitle = styled.p`
   }
 `;
 
-const Section = styled.div`
-  margin: 3rem 0;
-  padding: 2rem 0;
-`;
 
-const SectionTitle = styled.h2`
-  text-align: center;
-  font-size: 2rem;
-  color: #2c3e50;
-  margin-bottom: 2rem;
-  
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
+
 
 const CalculatorForm = styled.form`
   max-width: 600px;
@@ -314,7 +330,7 @@ const InputGroup = styled.div`
 const Input = styled.input`
   width: 100%;
   padding: 0.8rem;
-  border: 2px solid #007fff;
+  border: 2px solid #00c445;
   border-radius: 6px;
   font-size: 1rem;
   margin-top: 0.5rem;
@@ -326,7 +342,7 @@ const Input = styled.input`
 `;
 
 const DrillOptions = styled.fieldset`
-  border: 2px solid #007fff;
+  border: 2px solid #00c445;
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -346,7 +362,7 @@ const DrillOption = styled.label`
   color: #444;
   
   input {
-    accent-color: #007fff;
+    accent-color: #00c445;
     width: 18px;
     height: 18px;
   }
@@ -367,7 +383,7 @@ const PriceDisplay = styled.div`
 const TotalPrice = styled.div`
   font-size: 2.5rem;
   font-weight: bold;
-  color: #007fff;
+  color: #00c445;
   margin: 0.5rem 0;
   
   @media (max-width: 768px) {
@@ -433,7 +449,7 @@ const SpecCard = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   
   h3 {
-    color: #007fff;
+    color: #00c445;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -460,5 +476,117 @@ const SpecCard = styled.div`
     }
   }
 `;
+
+const PricingInfo = styled.div`
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 2rem 0;
+`;
+
+const ServiceCard = styled.div`
+  padding: 1.5rem;
+  background: ${props => props.highlight ? '#f8fff0' : 'white'};
+  border-radius: 12px;
+  border: 2px solid ${props => props.highlight ? '#00c445' : '#eee'};
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  
+  h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      margin: 0.8rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      
+      &::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #00c445;
+      }
+    }
+  }
+`;
+
+const Price = styled.div`
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00c445;
+  margin: 1rem 0;
+`;
+
+const ContactBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+`;
+
+const QRContainer = styled.div`
+  text-align: center;
+  
+  img {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #00c445;
+    padding: 0.5rem;
+    border-radius: 12px;
+  }
+  
+  span {
+    display: block;
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+  }
+`;
+
+const PhoneLink = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #00c445, #009933);
+  color: white !important;
+  border-radius: 50px;
+  text-decoration: none !important;
+  transition: transform 0.3s;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  svg {
+    font-size: 1.5rem;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+const PhoneNumber = styled.span`
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+`;
+
 
 export default PCBServicePage;

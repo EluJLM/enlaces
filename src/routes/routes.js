@@ -32,6 +32,7 @@ const MyRoutes = () => {
 
         <Route path={serviciotecnicosmartphone} element={<Serviciotecnicodesmartphone />}></Route>
         <Route path={"/serviciotecnico/pcb"} element={<PCBServicePage />}></Route>
+        <Route path={"/pcb"} element={<PCBServicePage />}></Route>
 
 
         <Route path={cerrajeria} element={<Cerrajeria />} ></Route>

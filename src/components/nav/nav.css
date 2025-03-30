@@ -8,7 +8,7 @@ nav {
     top: 0;
     width: 100%;
     background: var(--white);
-    box-shadow: 0 0 6px #000;
+    box-shadow: 0 0 6px #00000066;
     z-index: 1000;
 }
 

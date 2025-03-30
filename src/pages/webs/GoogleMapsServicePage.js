@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { clients } from './services';
 import { FaMapMarkerAlt, FaMobileAlt, FaStar } from 'react-icons/fa'; // Importa los íconos
+import { HeroSection, Section, SectionTitle} from '../../components/styled/styled';
 
 const GoogleMapsServicePage = () => {
   return (
@@ -116,14 +117,6 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const HeroSection = styled.div`
-  text-align: center;
-  padding: 4rem 0;
-  background-color: #007fff; /* Color fijo */
-  color: white;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-`;
 
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -138,20 +131,6 @@ const Subtitle = styled.p`
   opacity: 0.9;
 `;
 
-const Section = styled.div`
-  margin: 3rem 0;
-  padding: 2rem 0;
-`;
-
-const SectionTitle = styled.h2`
-  text-align: center;
-  font-size: 2rem;
-  color: #2c3e50; /* Color fijo */
-  margin-bottom: 2rem;
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
 
 const BenefitsGrid = styled.div`
   display: grid;
