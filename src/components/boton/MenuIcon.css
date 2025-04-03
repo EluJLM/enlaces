@@ -1,0 +1,9 @@
+.boton_tres_barras{
+    background: none;
+    border: none;
+}
+.boton_tres_barras p{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--azure);
+}

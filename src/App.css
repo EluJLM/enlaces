@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --azure: #007fff;
+  --aquamarine: #4ce0b3;
+  --myrtlegreen: #377771;
+  --yellow: #FBFFDC;
+  --green: #004028;
+  --blue: #004386;
+  --bluelight: #006fdd;
+  --light-green: #EAF5ED;
+  --white: #FFFFFF;
+  --black: #000;
+  --black2:#00268d;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--white);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  transition: 0.3 ease all;
+}
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-message {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.footer-links {
+  margin-bottom: 15px;
+}
+
+.footer-link {
+  color: #1db954;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-buttons {
+  margin-top: 10px;
+}
+
+.footer-button {
+  display: inline-block;
+  background-color: #1db954;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.footer-button:hover {
+  background-color: #148f3f;
+}
