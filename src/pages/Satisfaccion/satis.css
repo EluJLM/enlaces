@@ -1,0 +1,130 @@
+/* Estilo general del contenedor */
+.survey-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Títulos */
+  .survey-container h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .survey-container h2 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Etiquetas de los campos */
+  form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #444;
+    font-weight: bold;
+  }
+  
+  /* Campos de texto y selección */
+  form input[type="text"],
+  form textarea,
+  form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  /* Botón de envío */
+  form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Mensaje de estado */
+  .status-message {
+    text-align: center;
+    font-size: 1rem;
+    color: #0066cc;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para el mensaje de error */
+  .survey-container h1.error-message {
+    color: #ff0000;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .input-radio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    border: 2px solid #007fff;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .con-radio{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .con-radio .label-radio{
+    width: 30%;
+    text-align: center;
+  }
+  .cliente{
+    color: var(--aquamarine);
+  }
+  .comentario{
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 100px;
+  }
+  /* Estilo para pantallas pequeñas (móviles) */
+  @media (max-width: 600px) {
+    .survey-container {
+      padding: 15px;
+    }
+  
+    .survey-container h1 {
+      font-size: 1.5rem;
+    }
+  
+    .survey-container h2 {
+      font-size: 1rem;
+    }
+  
+    form label {
+      font-size: 0.9rem;
+    }
+  
+    form button[type="submit"] {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  }
+  

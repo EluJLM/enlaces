@@ -1,0 +1,12 @@
+
+.urlgenerador{
+    width: 80%;
+    margin: 70px auto;
+}
+.urlgenerador input{
+    padding: 5px;
+    width: 95%;
+}
+.urlgenerador div{
+    margin: 10px;
+}
