@@ -96,6 +96,7 @@ const PCBServicePage = () => {
       <Section>
         <SectionTitle>Cotiza</SectionTitle>
         <CalculatorForm onSubmit={handleSubmit}>
+       
           <ServiceTypeSelector>
             <legend>Tipo de servicio: FR-4</legend>
             <ServiceOption>
@@ -159,9 +160,11 @@ const PCBServicePage = () => {
             </label>
           </InputGroup>
 
-          {/*<DrillOptions>
+          
+
+          <DrillOptions>
             <legend><FaCalculator /> Diámetros de perforación (selección múltiple):</legend>
-            {['0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0', '1.1', '1.2'].map((size) => (
+            {['0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0', '1.1', '1.2', '1.6'].map((size) => (
               <DrillOption key={size}>
                 <input 
                   type="checkbox"
@@ -175,14 +178,14 @@ const PCBServicePage = () => {
               {drills.length > 3 && 
                 `+${drills.length - 3} brocas extras ($${(drills.length - 3) * 1000} COP)`}
             </DrillWarning>
-          </DrillOptions>*/}
+          </DrillOptions>
 
           {error && <ErrorMessage>{error}</ErrorMessage>}
 
           <PriceDisplay>
             <FaMoneyBillWave size={24} />
-            <TotalPrice>${calcularPrecio().toLocaleString()} COP</TotalPrice>
-            <TotalPrice>{height*width} cm²</TotalPrice>
+            <TotalPrice>${(calcularPrecio() || 0).toLocaleString()} COP</TotalPrice>
+            <TotalPrice>{parseFloat((height * width).toFixed(2))} cm²</TotalPrice>
             <PriceBreakdown>
               <div>Precio base: ${(width * height * PRECIOS[serviceType] || 0).toLocaleString()}</div>
               {drills.length > 3 && 
@@ -346,6 +349,8 @@ const DrillOptions = styled.fieldset`
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
   legend {
     padding: 0 0.5rem;
     font-weight: bold;
@@ -357,10 +362,8 @@ const DrillOption = styled.label`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 0.5rem 0;
   cursor: pointer;
   color: #444;
-  
   input {
     accent-color: #00c445;
     width: 18px;

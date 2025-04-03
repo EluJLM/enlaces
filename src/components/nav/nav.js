@@ -45,9 +45,9 @@ const Nav = () => {
         <li>
           <Link to={cerrajeria} onClick={cerrarMenu}>Cerrajeria</Link>
         </li>
-        <li>
+        {/*<li>
           <Link to={quiensoy} onClick={cerrarMenu}>Quien soy</Link>
-        </li>
+        </li>*/}
         <li>
           {/*<Link to={serviciotecnicosmartphone} onClick={cerrarMenu}>Contacto</Link>*/}
         </li>
