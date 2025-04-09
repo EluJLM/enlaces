@@ -1,4 +1,4 @@
-import { FaMobileAlt, FaPlug, FaTv, FaBlender, FaTools, FaCogs, FaLaptop } from "react-icons/fa";
+import { FaMobileAlt, FaPlug, FaTv, FaBlender, FaTools, FaCogs, FaLaptop, FaPrint} from "react-icons/fa";
 import { FcElectronics } from "react-icons/fc";
 export const technicalServices = [
   // 📌 ELECTRODOMÉSTICOS
@@ -30,9 +30,15 @@ export const technicalServices = [
   },
   {
     icon: FaLaptop,
-    title: "Reparación y Optimización de Computadores",
+    title: "Reparación y Mantenimiento de Computadores",
     description:
       "Formateo, instalación de programas, limpieza de virus y mantenimiento de computadores lentos o con fallas técnicas.",
+  },
+  {
+    icon: FaPrint,
+    title: "Reparación y Mantenimiento de Impresoras",
+    description:
+      "Reparación de impresoras de inyección de tinta y láser. Solucionamos problemas de impresión, atascos y mantenimiento preventivo.",
   },
 
   // 📌 MANTENIMIENTO Y ASESORÍA

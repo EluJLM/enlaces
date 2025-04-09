@@ -13,7 +13,7 @@ const PCBServicePage = () => {
   // Precios base
   const PRECIOS = {
     taladros: 90,
-    una_cara: 90+150,
+    una_cara: 320,
     dos_caras: 88+90+55
   };
 
@@ -24,8 +24,10 @@ const PCBServicePage = () => {
     // Costo adicional por brocas extras
     const brocasExtras = Math.max(drills.length - 3, 0);
     if(brocasExtras > 0) precio += brocasExtras * 1000;
-    
-    return Math.max(precio, 10000);
+    if(serviceType === 'taladros'){
+      return precio;
+    }
+    return Math.max(precio, 32000);
   };
 
   const handleSubmit = (e) => {
@@ -68,7 +70,7 @@ const PCBServicePage = () => {
 
     <ServiceCard highlight>
       <h3><FaCalculator /> Taladros + 1 Cara</h3>
-      <Price>$240/cm²</Price>
+      <Price>$320/cm²</Price>
       <ul>
         <li>Incluye revelado de 1 cara</li>
         <li>Material FR-4</li>
@@ -118,7 +120,7 @@ const PCBServicePage = () => {
                 checked={serviceType === 'una_cara'}
                 onChange={(e) => setServiceType(e.target.value)}
               />
-              <span>1 cara + taladros ($90 + $150 /cm²)</span>
+              <span>1 cara + taladros ($320 /cm²)</span>
             </ServiceOption>
             <ServiceOption>
               <span>Proximamente dos caras y Serigrafia</span>
@@ -190,7 +192,7 @@ const PCBServicePage = () => {
               <div>Precio base: ${(width * height * PRECIOS[serviceType] || 0).toLocaleString()}</div>
               {drills.length > 3 && 
                 <div>+ Brocas extras: ${((drills.length - 3) * 1000).toLocaleString()}</div>}
-              <div>Mínimo de pedido: $10,000 COP</div>
+              {serviceType === "una_cara" && <div>Mínimo de pedido: $32,000 COP</div>}
             </PriceBreakdown>
           </PriceDisplay>
 
@@ -222,7 +224,7 @@ const PCBServicePage = () => {
             <h3><FaMoneyBillWave /> Políticas</h3>
             <ul>
               <li>Más de 3 brocas diferentes: $1,000 COP adicionales por broca</li>
-              <li>Mínimo de pedido: $10,000 COP</li>
+              <li>Mínimo de pedido: $32,000 COP - 1 cara</li>
               <li>Pago 50% anticipado</li>
               <li>Archivos Gerber de Perforaciones( Drill)</li>
               <li>PDF del bottom y/o top vias requeridos</li>
