@@ -9,6 +9,7 @@ const Cerrajeria = () => {
         <>
             <SectionOne 
                 text1={"Cerrajeria"}
+                variant={"locksmith"}
                 text2={"Tu tranquilidad, es nuestra llave."}
                 textp={"Llegamos cuando más nos necesitas."}
             />

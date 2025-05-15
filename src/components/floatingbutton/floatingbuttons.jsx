@@ -34,7 +34,7 @@ const FloatingButtons = ({ whatsapp, phone, instagram, facebook, tiktok, email }
   return (
     <div className="floating-buttons-container">
       {buttons.map(({ link, Icon }, index) => (
-        <a key={index} href={link} className="floating-button" target="_blank" rel="noopener noreferrer">
+        <a key={index} href={link} aria-label={"boton flotante"} className="floating-button" target="_blank" rel="noopener noreferrer">
           <Icon size={38} />
         </a>
       ))}

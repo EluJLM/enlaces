@@ -12,8 +12,9 @@ function App() {
   <div>
     <Nav />
     <FloatingButtons whatsapp={"573022547603"} phone={"3022547603"}/>
-    
-    <MyRoutes/>
+    <main>
+      <MyRoutes/>
+    </main>
 
     <Footer />
   </div>

@@ -1,58 +1,27 @@
-section{
-    min-height: 100vh;
+
+.section-one{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  align-items: center;
+  min-height: 100vh;
     box-shadow: 0 0 6px #00000050;
     padding-bottom: 50px;
     overflow: hidden;
     & header{
         padding: 10px 50px;
-        color: var(--bluelight);
+        color: var(--black);
         & h1{
             font-size: 44px;
             padding: 0px 145px;
-        }
-        & p{
-            color: var(--black);
-            font-size: 18px;
+            color: var(--bluelight);
         }
     }
-    & ul {
-        margin: 0px 10px 10px 50px;
-    }
-    & .list{
-        box-shadow: 0 0px 6px #00000050;
-        width: 90%;
-        margin: 0 auto;
-        padding: 10px;
-        margin-bottom: 30px;
-        border-radius: 12px;
-       
-    }
-    & .titlelist{
-        text-align: center;
-    }
-    & button{
-        width: 50%;
-        margin: 0 auto;
-        padding: 10px;
-        background: var(--bluelight);
-        font-size: 16px;
-        border: none;
-        color: var(--white);
-        border-radius: 8px;
-        box-shadow: 0 0px 6px #0000006b;
-    }
-    & button:hover{
-        background: var(--black);
-    }
-}
-.section-one{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 30px;
     & span{
         color: var(--azure);
-        font-weight: 700;
+        font-weight: 900;
+        font-size: 24px;
     }
     & h2{
         border-bottom: 1px solid #000;
@@ -68,7 +37,6 @@ section{
 
 @media (max-width: 700px) {
     section{
-        
         min-height: 95vh;
         & header{
             display: flex;
@@ -79,6 +47,12 @@ section{
             }
         }
     }
+    .section-one{
+        flex-direction: column;
+        & h2{
+            text-align: center;
+        }
+    }
 }
 .navigation-buttons {
     display: flex;
@@ -86,11 +60,13 @@ section{
     gap: 15px;
     justify-content: center;
     padding-top: 150px;
+    width: 50%;
   }
   
   .nav-button {
     display: flex;
     align-items: center;
+    width: 70%;
     gap: 10px;
     padding: 10px 20px;
     font-size: 16px;
@@ -133,11 +109,12 @@ section{
   @media (max-width: 768px) {
     .navigation-buttons {
       flex-direction: column;
-      gap: 10px;
+      width: 80%;
     }
   
     .nav-button {
-      width: 90%;
+      
+      width: 100%;
     }
   }
   

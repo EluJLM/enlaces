@@ -1,13 +1,25 @@
-import { Link } from "react-router-dom";
-import { cerrajeria, quiensoy, serviciotecnicosmartphone, solucioneswebs } from "../../routes/Routes_text";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "./nav.css";
+import { Link } from "react-router-dom";
+import { 
+  StyledNav,
+  StyledLogo,
+  StyledNavList,
+  NavItem,
+  MenuButton,
+  MobileMenuBackdrop,
+  ContentOne,
+  Contacto
+} from "./Nav.styled";
+import { 
+  cerrajeria, 
+  solucioneswebs, 
+  serviciotecnicosmartphone 
+} from "../../routes/Routes_text";
 
 const Nav = () => {
   const [activo, setActivo] = useState(false);
 
-  // Función para cerrar el menú al hacer clic en un enlace
   const cerrarMenu = () => {
     if (window.innerWidth <= 700) {
       setActivo(false);
@@ -15,44 +27,49 @@ const Nav = () => {
   };
 
   return (
-    <nav>
-      <h1 className="ENLACES">
-        <Link to="/">Enlaces DS</Link>
-      </h1>
+    <>
+      <StyledNav>
 
-      {/* Checkbox oculto para controlar el menú con CSS */}
-      <input 
-        type="checkbox" 
-        id="menu-toggle" 
-        className="menu-toggle" 
-        checked={activo} 
-        onChange={() => setActivo(!activo)} 
-      />
-      <label htmlFor="menu-toggle" className="menu-btn">
-        {activo ? <FaTimes size={24} /> : <FaBars size={24} />}
-      </label>
+        <ContentOne>
+          <StyledLogo>
+            <Link to="/">Enlaces DS</Link>
+          </StyledLogo>
 
-      <ul className={`nav-list ${activo ? "open" : ""}`}>
-        <li>
-          <Link to="/" onClick={cerrarMenu}>Inicio</Link>
-        </li>
-        <li>
-          <Link to={solucioneswebs} onClick={cerrarMenu}>Webs</Link>
-        </li>
-        <li>
-          <Link to={serviciotecnicosmartphone} onClick={cerrarMenu}>Servicio tecnico</Link>
-        </li>
-        <li>
-          <Link to={cerrajeria} onClick={cerrarMenu}>Cerrajeria</Link>
-        </li>
-        {/*<li>
-          <Link to={quiensoy} onClick={cerrarMenu}>Quien soy</Link>
-        </li>*/}
-        <li>
-          {/*<Link to={serviciotecnicosmartphone} onClick={cerrarMenu}>Contacto</Link>*/}
-        </li>
-      </ul>
-    </nav>
+          <MenuButton onClick={() => setActivo(!activo)} aria-label="menu">
+            {activo ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </MenuButton>
+
+        </ContentOne>
+        <MobileMenuBackdrop 
+          open={activo} 
+          onClick={() => setActivo(false)}
+        />
+
+        <StyledNavList open={activo}>
+          <NavItem>
+            <Link to="/" onClick={cerrarMenu}>Inicio</Link>
+          </NavItem>
+          <NavItem>
+            <Link to={solucioneswebs} onClick={cerrarMenu}>Webs</Link>
+          </NavItem>
+          <NavItem>
+            <Link to={serviciotecnicosmartphone} onClick={cerrarMenu}>Servicio tecnico</Link>
+          </NavItem>
+          <NavItem>
+            <Link to={cerrajeria} onClick={cerrarMenu}>Cerrajeria</Link>
+          </NavItem>
+
+          {activo &&
+          <Contacto>
+
+            <h3>Contacto</h3>
+            <a href="mailto:elulozano@enlacesds.com">Enviar un Email</a>
+          </Contacto>
+          }
+        </StyledNavList>
+
+      </StyledNav>
+    </>
   );
 };
 

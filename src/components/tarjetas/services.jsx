@@ -33,13 +33,16 @@ export default function Services({ title, services }) {
           >
             {<service.icon size={40} className="icon"  />}
             {service.link ? (
-              <Link 
+              <h3>
+
+                <Link 
                 to={service.link} 
-                className="service-title"
                 onClick={(e) => e.stopPropagation()} // Evita la propagación del click
               >
                 {service.title}
               </Link>
+                </h3>
+              
             ) : (
               <h3 className="service-title">{service.title}</h3>
             )}

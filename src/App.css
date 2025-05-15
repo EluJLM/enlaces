@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 
 :root {
   --azure: #007fff;
@@ -11,13 +11,12 @@
   --light-green: #EAF5ED;
   --white: #FFFFFF;
   --black: #000;
-  --black2:#00268d;
+  --black2:#007fff;
 }
 
 body {
   min-height: 100vh;
   background-color: var(--white);
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
   transition: 0.3 ease all;

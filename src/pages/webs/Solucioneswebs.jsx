@@ -7,12 +7,14 @@ const Solucioneswebs = () => {
   return (
     <>
       <SectionOne 
-        text1={"Webs 🌐"}
+        text1={"Soluciones Webs"}
+        variant={"web"} 
         text2={"Soluciones a tu alcance"}
         textp={"Genera confianza y credibilidad en tus clientes"}
       />
       
       <Services title={"Ofrecemos"} services={webServices} />
+
       <div className="services-container">
         <h2 className="services-title">Soluciones</h2>
         <div className="services-grid">

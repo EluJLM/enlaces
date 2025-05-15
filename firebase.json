@@ -11,6 +11,17 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|css|html|png|jpg|svg)",
+        "headers": [
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self' enlaces-ds.web.app enlacesds.com *.googleapis.com *.firebaseio.com; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' https: data:; connect-src 'self' enlaces-ds.web.app enlacesds.com *.googleapis.com *.firebaseio.com; frame-src 'none'; object-src 'none';"
+          }
+        ]
+      }
     ]
   }
 }
