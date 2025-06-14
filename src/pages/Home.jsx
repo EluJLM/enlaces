@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { serviciotecnicosmartphone, solucioneswebs, cerrajeria } from "../routes/Routes_text";
 import NavElement from "../components/boton/NavElement";
 import { Maps } from "../components/maps/Maps";
-
+import PhoneForm from "../components/formulario/PhoneForm";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const Home = () => {
       
       <Maps />
 
-
+      <PhoneForm />
     </SectionOne>
   );
 };

@@ -35,7 +35,7 @@ const MyRoutes = () => {
 
 
         <Route path={cerrajeria} element={<Cerrajeria />} ></Route>
-        {/*<Route path={quiensoy} element={<Quiensoy />}></Route>*/}
+        <Route path={quiensoy} element={<Quiensoy />}></Route>
         
         <Route path="*" element={<NotFound />}></Route>
         <Route path={satisfaccion} element={<Satisfaccion />} ></Route>

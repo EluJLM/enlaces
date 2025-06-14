@@ -79,19 +79,22 @@ export const Quiensoy = () => {
       <InfoContainer>
         <Name>Elu Jesus Lozano Mendoza</Name>
         <Description>
-          Hola soy Elu, un apasionado por la electrónica, la programación.
+          Hola soy Elu, un apasionado por la electrónica, la programación y la ciberseguridad.
         </Description>
         <Description>
             Estoy dispuesto a compartir mis conocimientos.
         </Description>
         <Description>
-            Soy estudiante de instrumentación electrónica en la universidad del Quindío, este año me graduo.
+            Soy estudiante de instrumentación electrónica en la universidad del Quindío y ciberseguridad en Coursera.
         </Description>
         <Description>
             En el momento ofrezco servicios de cerrajería, técnico electrónico, y servicios webs.
         </Description>
         <Description>
-            Mi meta es generar empleo y ayudar a las personas a solucionar sus problemas.
+            Y estoy a la expectiva de nuevas oportunidades para seguir aprendiendo y creciendo en el campo de la tecnología
+        </Description>
+        <Description>
+
         </Description>
         <SocialLinks>
           <SocialLink href="https://www.tiktok.com/@elujlm" target="_blank" rel="noopener noreferrer">

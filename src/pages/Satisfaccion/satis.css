@@ -33,7 +33,7 @@
   }
   
   /* Campos de texto y selección */
-  form input[type="text"],
+  form input,
   form textarea,
   form select {
     width: 100%;

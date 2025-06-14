@@ -1,4 +1,4 @@
-import { FaMapMarkedAlt, FaHourglassHalf } from "react-icons/fa";
+import { FaMapMarkedAlt, FaHourglassHalf, FaShieldAlt } from "react-icons/fa";
 
 export const webServices = [
   {
@@ -7,6 +7,12 @@ export const webServices = [
     description:
       "Mejoramos tu visibilidad en Google Maps para que más clientes te encuentren localmente. Ventajas: Aumento de clientes presenciales, Mejor posicionamiento local en búsquedas, Perfil empresarial verificado, Respuestas a reseñas y actualizaciones periódicas. ¡Contáctanos para más información!",
     link: "/webs/posicionamientoengooglemaps",
+  },
+  {
+    icon: FaShieldAlt, // Ícono de un escudo para ciberseguridad
+    title: "Consultoría de Ciberseguridad",
+    description:
+      "Protege tu negocio de amenazas digitales con nuestra consultoría especializada. Te brindamos los fundamentos de ciberseguridad. ¡Asegura la integridad de tu información!",
   },
   {
     icon: FaHourglassHalf,
